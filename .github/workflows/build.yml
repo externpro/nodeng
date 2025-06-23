@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+  workflow_dispatch:
+
+jobs:
+  actpro-linux:
+    uses: externpro/actpro/.github/workflows/build-linux.yml@main
+    with:
+      email: anderson.scott.m@icloud.com
+
+  actpro-windows:
+    uses: externpro/actpro/.github/workflows/build-windows.yml@main
