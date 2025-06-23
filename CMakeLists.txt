@@ -6,7 +6,6 @@ project(nodeng VERSION 22.16.0.1)
 set(SHA256_Linux f4cb75bb036f0d0eddf6b79d9596df1aaab9ddccd6a20bf489be5abe9467e84e)
 set(SHA256_win64 21c2d9735c80b8f86dab19305aa6a9f6f59bbc808f68de3eef09d5832e3bfbbd)
 set(SHA256_arm64 eab80cb88f8fda1e65f5e8d0420c9809bdb320b03fd34976ab7161b6e703b910)
-set(webpro_REV NONE)
 include(flags)
 include(FetchContent)
 cmake_policy(SET CMP0168 OLD) # don't want to see download progress
