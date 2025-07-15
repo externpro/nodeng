@@ -18,7 +18,7 @@ jobs:
     uses: externpro/actpro/.github/workflows/build-linux.yml@main
     with:
       email: anderson.scott.m@icloud.com
-      runon: ubuntu-22.04-arm64
+      runon: ubuntu-24.04-arm
 
   actpro-windows:
     uses: externpro/actpro/.github/workflows/build-windows.yml@main
