@@ -13,12 +13,16 @@ jobs:
     with:
       email: anderson.scott.m@icloud.com
       runon: ubuntu-latest
+      cmake-workflow-preset: LinuxRelease
 
   linux-arm64:
     uses: externpro/externpro/.github/workflows/build-linux.yml@main
     with:
       email: anderson.scott.m@icloud.com
       runon: ubuntu-24.04-arm
+      cmake-workflow-preset: LinuxRelease
 
   windows:
     uses: externpro/externpro/.github/workflows/build-windows.yml@main
+    with:
+      cmake-workflow-preset: WindowsRelease
