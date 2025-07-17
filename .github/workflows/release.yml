@@ -15,8 +15,6 @@ jobs:
   # Upload artifacts as release assets
   upload-release-assets:
     uses: externpro/externpro/.github/workflows/upload-release-assets.yml@github-release
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
       workflow_run_url: ${{ github.event.inputs.workflow_run_url }}
       artifact_pattern: "*.tar.xz"
