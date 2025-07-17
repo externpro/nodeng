@@ -18,4 +18,4 @@ jobs:
     with:
       workflow_run_url: ${{ github.event.inputs.workflow_run_url }}
       artifact_pattern: "*.tar.xz"
-      draft: ${{ github.event.inputs.draft }}
+      draft: ${{ github.event.inputs.draft == 'true' }}
