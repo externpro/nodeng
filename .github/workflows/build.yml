@@ -1,28 +1,25 @@
 name: Build
-
 on:
   push:
     branches: [ "dev" ]
   pull_request:
     branches: [ "dev" ]
   workflow_dispatch:
-
 jobs:
   linux:
-    uses: externpro/externpro/.github/workflows/build-linux.yml@main
+    uses: externpro/externpro/actions/build-linux.yml@main
     with:
-      email: anderson.scott.m@icloud.com
+      cmake-workflow-preset: LinuxRelease
       runon: ubuntu-latest
-      cmake-workflow-preset: LinuxRelease
-
+    secrets: inherit
   linux-arm64:
-    uses: externpro/externpro/.github/workflows/build-linux.yml@main
+    uses: externpro/externpro/actions/build-linux.yml@main
     with:
-      email: anderson.scott.m@icloud.com
-      runon: ubuntu-24.04-arm
       cmake-workflow-preset: LinuxRelease
-
+      runon: ubuntu-24.04-arm
+    secrets: inherit
   windows:
-    uses: externpro/externpro/.github/workflows/build-windows.yml@main
+    uses: externpro/externpro/actions/build-windows.yml@main
     with:
       cmake-workflow-preset: WindowsRelease
+    secrets: inherit
