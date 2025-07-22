@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake)
 include(preproject)
-project(nodeng VERSION 22.17.1.0)
+project(nodeng VERSION 22.17.1.1)
 # https://nodejs.org/dist/v22.17.1/SHASUMS256.txt
 set(SHA256_Linux ff04bc7c3ed7699ceb708dbaaf3580d899ff8bf67f17114f979e83aa74fc5a49) # node-v22.17.1-linux-x64.tar.xz
 set(SHA256_win64 b1fdb5635ba860f6bf71474f2ca882459a582de49b1d869451e3ad188e3943eb) # node-v22.17.1-win-x64.zip
