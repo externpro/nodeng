@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake)
 include(preproject)
-project(nodeng VERSION 22.16.0.2)
-# https://nodejs.org/dist/v22.16.0/SHASUMS256.txt
-set(SHA256_Linux f4cb75bb036f0d0eddf6b79d9596df1aaab9ddccd6a20bf489be5abe9467e84e)
-set(SHA256_win64 21c2d9735c80b8f86dab19305aa6a9f6f59bbc808f68de3eef09d5832e3bfbbd)
-set(SHA256_arm64 eab80cb88f8fda1e65f5e8d0420c9809bdb320b03fd34976ab7161b6e703b910)
+project(nodeng VERSION 22.17.1.0)
+# https://nodejs.org/dist/v22.17.1/SHASUMS256.txt
+set(SHA256_Linux ff04bc7c3ed7699ceb708dbaaf3580d899ff8bf67f17114f979e83aa74fc5a49) # node-v22.17.1-linux-x64.tar.xz
+set(SHA256_win64 b1fdb5635ba860f6bf71474f2ca882459a582de49b1d869451e3ad188e3943eb) # node-v22.17.1-win-x64.zip
+set(SHA256_arm64 a5bb879af2fe70e7b5dc5e0bbadecba88e87f45bd8e62c0c57b5c815a4cbbaa6) # node-v22.17.1-linux-arm64.tar.xz
 include(flags)
 include(FetchContent)
 cmake_policy(SET CMP0168 OLD) # don't want to see download progress
