@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake)
 include(preproject)
-project(nodeng VERSION 22.17.1.1)
-# https://nodejs.org/dist/v22.17.1/SHASUMS256.txt
-set(SHA256_Linux ff04bc7c3ed7699ceb708dbaaf3580d899ff8bf67f17114f979e83aa74fc5a49) # node-v22.17.1-linux-x64.tar.xz
-set(SHA256_win64 b1fdb5635ba860f6bf71474f2ca882459a582de49b1d869451e3ad188e3943eb) # node-v22.17.1-win-x64.zip
-set(SHA256_arm64 a5bb879af2fe70e7b5dc5e0bbadecba88e87f45bd8e62c0c57b5c815a4cbbaa6) # node-v22.17.1-linux-arm64.tar.xz
+project(nodeng VERSION 22.18.0.0)
+# https://nodejs.org/dist/v22.18.0/SHASUMS256.txt
+set(SHA256_Linux c1bfeecf1d7404fa74728f9db72e697decbd8119ccc6f5a294d795756dfcfca7) # node-v22.18.0-linux-x64.tar.xz
+set(SHA256_win64 c95d8a7e1c99e669cc08c9f1176e068c1f50847c37908fcb8c35b62482366511) # node-v22.18.0-win-x64.zip
+set(SHA256_arm64 04fca1b9afecf375f26b41d65d52aa1703a621abea5a8948c7d1e351e85edade) # node-v22.18.0-linux-arm64.tar.xz
 include(flags)
 include(FetchContent)
 cmake_policy(SET CMP0168 OLD) # don't want to see download progress
