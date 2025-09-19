@@ -5,6 +5,7 @@ project(nodeng VERSION 22.18.0)
 set(SHA256_Linux c1bfeecf1d7404fa74728f9db72e697decbd8119ccc6f5a294d795756dfcfca7) # node-v22.18.0-linux-x64.tar.xz
 set(SHA256_win64 c95d8a7e1c99e669cc08c9f1176e068c1f50847c37908fcb8c35b62482366511) # node-v22.18.0-win-x64.zip
 set(SHA256_arm64 04fca1b9afecf375f26b41d65d52aa1703a621abea5a8948c7d1e351e85edade) # node-v22.18.0-linux-arm64.tar.xz
+set(SHA256_macos 6616f388e127c858989fc7fa92879cdb20d2a5d446adbfdca6ee4feb385bfa8a) # node-v22.18.0-darwin-arm64.tar.xz
 include(xpflags)
 include(FetchContent)
 cmake_policy(SET CMP0168 OLD) # don't want to see download progress
@@ -29,6 +30,17 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
   else()
     message(FATAL_ERROR "Unsupported architecture: ${CMAKE_SYSTEM_PROCESSOR}")
   endif()
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+  set(bin "bin/")
+  set(ext tar.xz)
+  if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+    set(arch arm64)
+    set(sha ${SHA256_macos})
+  else()
+    message(FATAL_ERROR "Unsupported architecture: ${CMAKE_SYSTEM_PROCESSOR}")
+  endif()
+else()
+  message(FATAL_ERROR "Unsupported OS: ${CMAKE_SYSTEM_NAME}")
 endif()
 set(url https://nodejs.org/dist/v${ver}/node-v${ver}-${os}-${arch}.${ext})
 set(fcName ${PROJECT_NAME}_fc)
