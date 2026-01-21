@@ -6,11 +6,8 @@ set(SHA256_Linux c0649af18e6a24f6fe5535a3e86b341dd49a8e71117c8b68bde973ef834f16f
 set(SHA256_win64 ea3fad0e67a991d8477d8c01344b56e69c676ccb733f065b22436994b1253f86) # node-v22.19.0-win-x64.zip
 set(SHA256_arm64 0b2d9f564b6594222a62c82e1df2efe119dd4a4aff29644f4dd325bf360b6bcc) # node-v22.19.0-linux-arm64.tar.xz
 set(SHA256_macos 1c3a9e78da501bbc1f0c99fbbb69bb7c722bc7a9bf30128b21ea502f3905892a) # node-v22.19.0-darwin-arm64.tar.xz
-include(xpflags)
 include(FetchContent)
 cmake_policy(SET CMP0168 OLD) # don't want to see download progress
-include(GNUInstallDirs)
-set(XP_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake) # xpPackageDevel
 string(TOLOWER ${CMAKE_SYSTEM_NAME} os)
 set(ver ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
@@ -48,6 +45,12 @@ FetchContent_Declare(${fcName} URL ${url} URL_HASH SHA256=${sha})
 FetchContent_MakeAvailable(${fcName})
 string(TOLOWER ${fcName} fcName)
 set(pth ${FETCHCONTENT_BASE_DIR}/${fcName}-src)
-xpPackageDevel(EXE_PATH ${CMAKE_INSTALL_BINDIR}/node)
+xpExternPackage(
+  EXE_PATH ${CMAKE_INSTALL_BINDIR}/node
+  BASE v0 XPDIFF "bin"
+  WEB "https://nodejs.org/en/blog/release/v${ver}/"
+  DESC "node executable bundled as externpro devel package to build angular (ng) projects"
+  LICENSE "[MIT](https://raw.githubusercontent.com/nodejs/node/v${ver}/LICENSE 'MIT License')"
+  )
 install(PROGRAMS ${pth}/${bin}node${CMAKE_EXECUTABLE_SUFFIX} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${pth}/CHANGELOG.md ${pth}/LICENSE ${pth}/README.md DESTINATION ${CMAKE_INSTALL_DATADIR})
