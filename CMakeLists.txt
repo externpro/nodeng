@@ -1,5 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
-set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES .devcontainer/cmake/xproinc.cmake)
+cmake_minimum_required(VERSION 4.3)
 project(nodeng VERSION 24.13.0)
 # https://nodejs.org/dist/v24.13.0/SHASUMS256.txt
 set(SHA256_Linux e798599612f4bb71333a3397ab0d095fd62214e115aea45aa858a145fc72d67e) # node-v24.13.0-linux-x64.tar.xz
